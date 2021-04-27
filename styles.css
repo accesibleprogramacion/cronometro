@@ -1,0 +1,75 @@
+main {
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #fff;
+    color: #fff;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.circle::before {
+    content: '';
+    border-radius: 50%;
+    z-index: -1;
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: calc(50% - 80px);
+    top: calc(50% - 80px);
+    background-color: #1d1d1d;
+}
+
+.seconds-sphere {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    left: calc(50% - 10px);
+    top: calc(50% - 10px);
+    animation: rotacion 60s linear infinite;
+    animation-play-state: paused;
+}
+
+@keyframes rotacion {
+	from { 	transform: rotate(-90deg) translateX(60px); }
+	to   {  transform: rotate(270deg) translateX(60px); }
+}
+
+.buttons {
+    margin-top: 10px;
+    display: inline-flex;
+}
+
+.paused {
+    height: 10px;
+    border-width: 5px 0 5px 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-left: 15px;
+    border-color: transparent transparent transparent #fff;
+    transition: 100ms all ease;
+    will-change: border-width;
+    border-style: solid;
+}
+
+.running {
+    border-style: double;
+    border-width: 0 0 0 10px;
+}
+
+.stop {
+    background-color: #fff;
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+}
